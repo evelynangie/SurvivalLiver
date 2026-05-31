@@ -1,4 +1,4 @@
-# Survival Analysis: Primary Biliary Cirrhosis (PBC)
+﻿# Survival Analysis: Primary Biliary Cirrhosis (PBC)
 
 > **Cox Proportional Hazard Model with PH Assumption Violation Handling**
 
@@ -350,8 +350,5 @@ All parameters are centralized in `PipelineConfig`:
 - Fleming, T.R. & Harrington, D.P. (1991). *Counting Processes and Survival Analysis*. Wiley.
 - Grambsch, P.M. & Therneau, T.M. (1994). Proportional Hazards Tests and Diagnostics Based on Weighted Residuals. *Biometrika*, 81(3), 515--526.
 - Davidson-Pilon, C. (2019). lifelines: survival analysis in Python. *Journal of Open Source Software*, 4(40), 1317.
-#   S u r v i v a l L i v e r  
- #   S u r v i v a l L i v e r  
- #   S u r v i v a l L i v e r  
- #   S u r v i v a l L i v e r  
+ 
  
