@@ -352,4 +352,5 @@ All parameters are centralized in `PipelineConfig`:
 - Davidson-Pilon, C. (2019). lifelines: survival analysis in Python. *Journal of Open Source Software*, 4(40), 1317.
 #   S u r v i v a l L i v e r  
  #   S u r v i v a l L i v e r  
+ #   S u r v i v a l L i v e r  
  
