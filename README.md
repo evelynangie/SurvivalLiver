@@ -41,14 +41,14 @@ To identify prognostic factors that significantly affect the survival of PBC pat
 
 **Source**: Mayo Clinic Primary Biliary Cirrhosis Data
 
-| Attribute       | Value                                          |
-| --------------- | ---------------------------------------------- |
-| Total patients  | 418 (raw), 412 (after cleaning)                |
-| Rows dropped    | 6 (missing values on `stage`, 1.4% of total) |
-| Events (deaths) | 157                                            |
-| Censored        | 255                                            |
-| Event rate      | 38.1%                                          |
-| Follow-up range | 41 -- 4795 days                                |
+| Attribute       | Value                                  |
+| --------------- | -------------------------------------- |
+| Total patients  | 418 (raw), 412 (after cleaning)        |
+| Rows dropped    | 6 (missing values on `stage`, 1.4%)    |
+| Events (deaths) | 157                                    |
+| Censored        | 255                                    |
+| Event rate      | 38.1%                                  |
+| Follow-up range | 41 -- 4795 days                        |
 
 ### Preprocessing Decisions
 
@@ -59,8 +59,8 @@ To identify prognostic factors that significantly affect the survival of PBC pat
 
 ### Covariates Used
 
-| Variable    | Description                                 |
-| ----------- | ------------------------------------------- |
+| Variable  | Description                                 |
+| --------- | ------------------------------------------- |
 | `age`     | Patient age in years                        |
 | `bili`    | Serum bilirubin (mg/dL)                     |
 | `albumin` | Serum albumin (g/dL)                        |
@@ -214,11 +214,11 @@ The Extended Cox model explicitly models the time-varying effect of `stage` by i
 
 ## Model Comparison
 
-| Model          | Log-likelihood | AIC              | Concordance        | PH Satisfied | HR for stage        | Note                        |
-| -------------- | -------------- | ---------------- | ------------------ | ------------ | ------------------- | --------------------------- |
-| Standard Cox   | -754.5253      | 1517.05          | 0.8178             | No           | Yes                 | PH violated on `stage`    |
-| Stratified Cox | -599.9341      | N/A (stratified) | 0.7596             | Yes          | No (stratified out) | AIC not comparable          |
-| Extended Cox   | -615.2985      | 1240.60          | N/A (time-varying) | Yes          | Yes (time-varying)  | Modeled time-varying effect |
+| Model          | Log-likelihood | AIC     | Concordance | PH Satisfied | HR for stage       | Note                   |
+| -------------- | -------------- | ------- | ----------- | ------------ | ------------------ | ---------------------- |
+| Standard Cox   | -754.5253      | 1517.05 | 0.8178      | No           | Yes                | PH violated on `stage` |
+| Stratified Cox | -599.9341      | N/A     | 0.7596      | Yes          | No (stratified)    | AIC not comparable     |
+| Extended Cox   | -615.2985      | 1240.60 | N/A         | Yes          | Yes (time-varying) | Modeled time-varying  |
 
 ### Selection Criteria (Priority Order)
 
@@ -332,15 +332,15 @@ print(f"Final model: {results['selected_model']}")
 
 All parameters are centralized in `PipelineConfig`:
 
-| Parameter            | Default Value                                      | Description                             |
-| -------------------- | -------------------------------------------------- | --------------------------------------- |
-| `data_path`        | `Mayo Clinic Primary Biliary Cirrhosis Data.csv` | Path to CSV dataset                     |
-| `duration_col`     | `time`                                           | Duration column name                    |
-| `event_col`        | `event`                                          | Event column name (1=event, 0=censored) |
-| `covariates`       | `['age', 'bili', 'albumin', 'stage']`            | Predictor variables                     |
-| `ph_violating_var` | `stage`                                          | Variable violating PH assumption        |
-| `alpha`            | `0.05`                                           | Significance threshold                  |
-| `random_seed`      | `42`                                             | Seed for reproducibility                |
+| Parameter       | Default Value                                  | Description                             |
+| --------------- | ---------------------------------------------- | --------------------------------------- |
+| `data_path`     | `Mayo Clinic Primary Biliary Cirrhosis Data.csv` | Path to CSV dataset                   |
+| `duration_col`  | `time`                                         | Duration column name                    |
+| `event_col`     | `event`                                        | Event column name (1=event, 0=censored) |
+| `covariates`    | `['age', 'bili', 'albumin', 'stage']`          | Predictor variables                     |
+| `ph_violating_var` | `stage`                                      | Variable violating PH assumption        |
+| `alpha`         | `0.05`                                         | Significance threshold                  |
+| `random_seed`   | `42`                                           | Seed for reproducibility                |
 
 ---
 
@@ -350,5 +350,3 @@ All parameters are centralized in `PipelineConfig`:
 - Fleming, T.R. & Harrington, D.P. (1991). *Counting Processes and Survival Analysis*. Wiley.
 - Grambsch, P.M. & Therneau, T.M. (1994). Proportional Hazards Tests and Diagnostics Based on Weighted Residuals. *Biometrika*, 81(3), 515--526.
 - Davidson-Pilon, C. (2019). lifelines: survival analysis in Python. *Journal of Open Source Software*, 4(40), 1317.
- 
- 
